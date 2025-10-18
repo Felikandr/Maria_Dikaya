@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мария Дикая | Искусство видеть прекрасное</title>
+    
+    <!-- Open Graph мета-теги -->
+    <meta property="og:title" content="Мария Дикая | Искусство видеть прекрасное">
+    <meta property="og:description" content="Глаза её так сияли, создавая волшебство в мире, где не было чудес. Фотограф, писатель, создатель атмосферы.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://mariadikaya.ru">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Мария Дикая">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Мария Дикая | Искусство видеть прекрасное">
+    <meta name="twitter:description" content="Фотограф, писатель, создатель атмосферы">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ЦВЕТОВАЯ ПАЛИТРА И ГЛОБАЛЬНЫЕ СТИЛИ --- */
+        :root {
+            --color-black: #0a0a0a;
+            --color-dark: #1a1a1a;
+            --color-white: #f5f5f5;
+            --color-red: #d94c57;
+            --color-gold: #d4af37;
+            --color-blue: #6fc3ff;
+            --font-main: 'Inter', sans-serif;
+            --font-decor: 'Playfair Display', serif;
+            
+            /* Переменные для светлой темы */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #f5f5f5;
+            --text-secondary: #cccccc;
+            --accent-primary: #d94c57;
+            --accent-secondary: #d4af37;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f8f8f8;
+            --bg-secondary: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --accent-primary: #e74c3c;
+            --accent-secondary: #f39c12;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 300;
+            letter-spacing: 1.5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* --- ПРЕЛОАДЕР --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-black) 0%, var(--color-dark) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .preloader-symbol {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            color: var(--color-red);
+        }
+
+        .preloader-text {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        /* --- ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ --- */
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+            transition: transform 0.4s ease;
+        }
+
+        /* --- ПАРТИКЛЫ И ФОНОВЫЕ ЭФФЕКТЫ --- */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- 🌐 HERO SECTION --- */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Анимация: "Мягкое дыхание фона" */
+        @keyframes softBreathing {
+            0%, 100% { 
+                opacity: 0.03; 
+                transform: scale(1) rotate(0deg);
+            }
+            50% { 
+                opacity: 0.08; 
+                transform: scale(1.1) rotate(180deg);
+            }
+        }
+
+        .breathing-light {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 30%, var(--color-blue) 0%, transparent 25%),
+                radial-gradient(circle at 70% 70%, var(--accent-primary) 0%, transparent 25%),
+                radial-gradient(circle at 50% 20%, var(--accent-secondary) 0%, transparent 20%);
+            opacity: 0.03;
+            animation: softBreathing 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            font-family: var(--font-decor);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease 0.5s forwards;
+            line-height: 1.1;
+        }
+
+        .slogan {
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            margin-bottom: 60px;
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease 1s forwards;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .accent-butterfly {
+            color: var(--accent-primary);
+            display: inline-block;
+            transition: all 0.6s ease;
+            filter: drop-shadow(0 0 5px rgba(217, 76, 87, 0.5));
+        }
+        
+        .slogan:hover .accent-butterfly {
+            transform: rotate(-15deg) scale(1.2);
+            filter: drop-shadow(0 0 10px rgba(217, 76, 87, 0.8));
+        }
+
+        .hero-nav {
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease 1.5s forwards;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            border: 1px solid var(--text-primary);
+            padding: 14px 32px;
+            letter-spacing: 1.5px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-button:hover::before {
+            left: 100%;
+        }
+
+        .nav-button:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-button.primary {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .nav-button.primary:hover {
+            background-color: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        /* Анимация появления */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- 👑 Обо мне --- */
+        .about-section {
+            padding: 150px 0;
+            position: relative;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .photo-column {
+            position: relative;
+        }
+
+        .photo-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 3px;
+            box-shadow: 
+                0 0 0 1px rgba(255,255,255,0.1),
+                0 20px 40px rgba(0,0,0,0.5);
+            transition: all 0.5s ease;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(212, 175, 55, 0.1) 50%, transparent 60%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .photo-frame:hover::before {
+            opacity: 1;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 
+                0 0 0 1px rgba(212, 175, 55, 0.3),
+                0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            filter: grayscale(30%) contrast(110%);
+            transition: all 0.7s ease;
+        }
+        
+        .photo-frame:hover .profile-photo {
+            filter: grayscale(0%) contrast(120%);
+            transform: scale(1.03);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 40px;
+            color: var(--text-primary);
+            font-family: var(--font-decor);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.5s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100%;
+        }
+
+        .text-column p {
+            margin-bottom: 25px;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            opacity: 0.85;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        .text-column strong {
+            color: var(--accent-secondary);
+            font-weight: normal;
+            position: relative;
+        }
+
+        .text-column strong::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-secondary);
+            transition: width 0.4s ease;
+        }
+
+        .text-column strong:hover::after {
+            width: 100%;
+        }
+
+        /* Секция навыков */
+        .skills-section {
+            margin-top: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            
+        }
+
+        .skill-card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.4s ease;
+            
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-primary);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-primary);
+        }
+
+        .skill-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .skill-desc {
+            font-size: 15px;
+            opacity: 0.8;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Анимация сияния для текста */
+        .shining-text {
+            background: linear-gradient(90deg, 
+                var(--text-secondary) 0%, 
+                var(--text-primary) 50%, 
+                var(--text-secondary) 100%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* --- 📷 Портфолио (Сетка) --- */
+        .portfolio-section {
+            padding: 150px 0;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            gap: 20px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            flex-wrap: wrap;
+        }
+
+        .category-link {
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .category-link:hover, .category-link.active {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            background: rgba(217, 76, 87, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(217, 76, 87, 0.2);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            min-height: 600px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 3px;
+            transition: all 0.5s ease;
+            height: 400px;
+            opacity: 1;
+            transform: scale(1);
+            cursor: pointer;
+        }
+
+        .portfolio-item.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
+            pointer-events: none;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        /* Анимация появления при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-content {
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(45deg, rgba(10,10,10,0.9) 0%, rgba(26,26,26,0.8) 100%);
+        }
+
+        .text-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-secondary);
+        }
+
+        .text-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 2px solid var(--accent-primary);
+            padding-left: 15px;
+            margin: 15px 0;
+            opacity: 0.8;
+        }
+
+        .item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.9) 90%);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .portfolio-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        .item-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.1s;
+            color: var(--text-primary);
+        }
+
+        .item-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .portfolio-item:hover .item-info h3,
+        .portfolio-item:hover .item-info p {
+            transform: translateY(0);
+        }
+
+        /* Hover-анимация */
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.7),
+                0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        /* Стили для разных типов контента */
+        .fashion-item {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        }
+
+        .text-item {
+            background: linear-gradient(135deg, rgba(111, 195, 255, 0.1) 0%, transparent 50%);
+        }
+
+        /* --- ЛАЙТБОКС --- */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            width: 100%;
+        }
+
+        .lightbox-media {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .lightbox-info {
+            padding: 30px;
+            color: var(--text-primary);
+        }
+
+        .lightbox-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 15px;
+            color: var(--accent-primary);
+        }
+
+        .lightbox-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .meta-item h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lightbox-desc {
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent-primary);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-prev, .lightbox-next {
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-prev:hover, .lightbox-next:hover {
+            background: var(--accent-primary);
+        }
+
+        /* --- 💌 ФУТЕР --- */
+        .footer {
+            padding: 80px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-secondary), transparent);
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Анимация: "Сияние текста" для контактов */
+        .contact-link {
+            display: inline-block;
+            padding: 0 8px;
+            transition: all 0.4s ease;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 8px;
+            width: 0;
+            height: 1px;
+            background: var(--color-blue);
+            transition: width 0.4s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--color-blue);
+            text-shadow: 0 0 8px var(--color-blue);
+        }
+
+        .contact-link:hover::after {
+            width: calc(100% - 16px);
+        }
+
+        /* Декоративные элементы */
+        .floating-element {
+            position: absolute;
+            opacity: 0.03;
+            z-index: -1;
+        }
+
+        .elem-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 8rem;
+            animation: floatSlow 25s infinite linear;
+        }
+
+        .elem-2 {
+            bottom: 20%;
+            right: 8%;
+            font-size: 6rem;
+            animation: floatSlow 30s infinite linear reverse;
+        }
+
+        @keyframes floatSlow {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-50px) rotate(360deg); }
+        }
+
+        /* --- Мобильное меню --- */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .mobile-nav a {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: 1px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .mobile-nav a:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Медиа-запросы для адаптивности --- */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .two-columns {
+                gap: 70px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .skill-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .photo-column {
+                order: 2;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .text-column {
+                order: 1;
+                text-align: center;
+            }
+            
+            .categories {
+                gap: 15px;
+            }
+            
+            .category-link {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+            
+            .theme-toggle {
+                top: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .slogan {
+                margin-bottom: 40px;
+            }
+            
+            .nav-button {
+                width: 200px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-item {
+                height: 350px;
+            }
+            
+            .categories {
+                gap: 10px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .about-section, .portfolio-section {
+                padding: 100px 0;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+            
+            .lightbox-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-nav {
+                padding: 0 10px;
+            }
+
+            .lightbox-prev, .lightbox-next {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .portfolio-item {
+                height: 300px;
+            }
+            
+            .categories {
+                gap: 8px;
+            }
+            
+            .category-link {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+            
+            .preloader-symbol {
+                font-size: 3rem;
+            }
+            
+            .preloader-text {
+                font-size: 1rem;
+            }
+
+            .theme-toggle, .mobile-menu-toggle {
+                width: 40px;
+                height: 40px;
+                top: 20px;
+            }
+
+            .theme-toggle {
+                right: 20px;
+            }
+
+            .mobile-menu-toggle {
+                left: 20px;
+            }
+
+            .hero-section {
+                padding: 10px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .lightbox-info {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-link {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+            }
+            
+            .nav-button {
+                min-width: 160px;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Прелоадер -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-symbol">🦋</div>
+            <div class="preloader-text">МАРИЯ ДИКАЯ</div>
+        </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-nav">
+            <a href="#about">Обо мне</a>
+            <a href="#portfolio">Портфолио</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </div>
+
+    <!-- Переключатель темы -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Партиклы -->
+    <div class="particles" id="particles-container"></div>
+
+    <!-- Декоративные элементы -->
+    <div class="floating-element elem-1">✦</div>
+    <div class="floating-element elem-2">❀</div>
+
+    <!-- Лайтбокс -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-nav">
+            <button class="lightbox-prev" id="lightboxPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-next" id="lightboxNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="lightbox-content" id="lightboxContent">
+            <!-- Контент будет добавляться динамически -->
+        </div>
+    </div>
+
+    <header class="hero-section">
+        <div class="breathing-light"></div>
+        <div class="container">
+            <h1 class="main-title">Мария Дикая</h1>
+            <p class="slogan">
+                Глаза её так сияли, создавая волшебство в мире, где не было чудес <span class="accent-butterfly">🦋</span>
+            </p>
+            <nav class="hero-nav">
+                <a href="#contact" class="nav-button primary"><i class="fas fa-heart"></i> Связаться</a>
+                <a href="#portfolio" class="nav-button"><i class="fas fa-images"></i> Портфолио</a>
+                <a href="#about" class="nav-button"><i class="fas fa-book-open"></i> Обо мне</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="about-section fade-in">
+        <div class="container two-columns">
+            <div class="photo-column">
+                <div class="photo-frame">
+                    <img src="https://i.postimg.cc/qMbBWWLN/s-Pj9n-HS9r-H0.jpg" alt="Мария Дикая" class="profile-photo">
+                </div>
+            </div>
+            <div class="text-column">
+                <h2 id="typewriter-text" class="section-title"></h2>
+                <p>Люблю <strong>стиль</strong>, <strong>эстетику</strong>, и тихие моменты, когда вдохновение рождается из простоты. Снимаюсь, пишу, создаю атмосферу.</p>
+                <p>В моих работах вы найдете <strong>минимализм + артистизм</strong>, гармонию контрастов и поиск света даже в самых темных уголках.</p>
+                <p>Каждый день — это новый холст, а каждое мгновение — возможность создать что-то <strong>прекрасное</strong> и <strong>искреннее</strong>.</p>
+                
+                <div class="skills-section">
+                    <h3 style="margin-bottom: 30px; color: var(--accent-secondary);">Мои принципы</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">✨</div>
+                            <h4 class="skill-title">Свет</h4>
+                            <p class="skill-desc">Игра с освещением для создания настроения и глубины в каждом кадре</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🎨</div>
+                            <h4 class="skill-title">Композиция</h4>
+                            <p class="skill-desc">Точное расположение элементов для гармоничного визуального восприятия</p>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">💫</div>
+                            <h4 class="skill-title">Эмоции</h4>
+                            <p class="skill-desc">Передача чувств и настроения через каждый созданный образ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section fade-in">
+        <div class="container">
+            <h2 class="section-title">Портфолио</h2>
+            <div class="categories">
+                <a class="category-link active" data-category="all"><i class="fas fa-star"></i> Все работы</a>
+                <a class="category-link" data-category="photo"><i class="fas fa-camera"></i> Фото</a>
+                <a class="category-link" data-category="text"><i class="fas fa-pen-nib"></i> Тексты</a>
+                <a class="category-link" data-category="fashion"><i class="fas fa-tshirt"></i> Образы</a>
+            </div>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Работы будут добавляться динамически -->
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <p><i class="fas fa-map-marker-alt"></i> Нижневартовск · ЮУрГУ '27</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:maria@wildqueen.ru" class="contact-link">maria@wildqueen.ru</a></p>
+            <div class="social-links">
+                <a href="#" class="contact-link"><i class="fab fa-vk"></i> VK</a>
+                <a href="#" class="contact-link"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="contact-link"><i class="fab fa-telegram"></i> Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Данные для портфолио
+        const portfolioData = [
+            {
+                id: 1,
+                category: 'photo',
+                type: 'image',
+                image: 'https://i.postimg.cc/prVhJzWN/4k-Z3v-Xl-O6-YI.jpg',
+                title: 'Осенняя симфония',
+                description: 'Капли дождя что стекают с крыш, и облага цветом грусти',
+                date: '15 октября 2024',
+                location: 'Нижневартовск, ХМАО',
+                tools: 'Canon EOS R6, 85mm f/1.4',
+                techniques: 'Естественное освещение, золотой час'
+            },
+            {
+                id: 2,
+                category: 'photo',
+                type: 'image',
+                image: 'https://i.postimg.cc/g21hbxDN/MLmud-Gw-WYd-I.jpg',
+                title: 'Банные приключения',
+                description: 'Деревенская фотография,пропитанная запахом дерева и жара тепла ',
+                date: '22 сентября 2024',
+                location: 'Москва, Арбат',
+                tools: 'Sony A7III, 35mm f/1.8',
+                techniques: 'Чёрно-белая фотография, контраст'
+            },
+            {
+                id: 3,
+                category: 'text',
+                type: 'text',
+                title: 'Поэзия мгновений',
+                description: 'Сборник коротких эссе о красоте повседневности и искусстве видеть необычное в обычном',
+                content: '"В тишине между словами рождается настоящая музыка души. Мы так часто ищем смыслы в громких фразах, что забываем о шепоте собственного сердца..."',
+                date: '10 ноября 2024',
+                genre: 'Лирическая проза',
+                words: '2,340 слов'
+            },
+            {
+                id: 4,
+                category: 'text',
+                type: 'text',
+                title: 'Диалоги с ветром',
+                description: 'Лирические зарисовки о внутреннем мире и поиске гармонии',
+                content: '"Иногда самые важные разговоры мы ведём с самими собой под аккомпанемент дождя. Капли стучат по стеклу, словно выстукивают ритм наших мыслей..."',
+                date: '5 октября 2024',
+                genre: 'Поэтическая проза',
+                words: '1,850 слов'
+            },
+            {
+                id: 5,
+                category: 'fashion',
+                type: 'image',
+                image: 'https://i.postimg.cc/XNh4897H/i-T4-UXm-Epv-GY.jpg',
+                title: 'Новогодний стиль',
+                description: 'Душистая и пахнущая ёлка,а по дней шикарный санта',
+                date: '18 августа 2024',
+                location: 'Екатеринбург',
+                stylist: 'Анна Петрова',
+                brand: 'Local designers'
+            },
+            {
+                id: 6,
+                category: 'fashion',
+                type: 'image',
+                image: 'https://i.postimg.cc/3wSxQVYK/Mi-K3c-VDSFMY.jpg',
+                title: 'Кровавая ночь',
+                description: 'Вот и настала ночь ,пора выходить на охоту',
+                date: '30 июля 2024',
+                location: 'Санкт-Петербург',
+                stylist: 'Мария Иванова',
+                brand: 'Vintage & Modern'
+            }
+        ];
+
+        // --- 1. ПРЕЛОАДЕР ---
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 1500);
+        });
+
+        // --- 2. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ---
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+            if (theme === 'light') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Проверяем сохранённую тему
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // --- 3. СОЗДАНИЕ ПАРТИКЛОВ ---
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = window.innerWidth < 768 ? 15 : 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 4 + 1;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // --- 4. TYPEWRITER EFFECT ---
+        const textToType = "Я — Мария, студентка ЮУрГУ, исследователь красоты в каждом дне.";
+        const typeEl = document.getElementById('typewriter-text');
+        let charIndex = 0;
+        let isTyping = false;
+
+        function typeWriter() {
+            if (isTyping) return;
+            isTyping = true;
+            
+            if (charIndex < textToType.length) {
+                typeEl.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 60);
+            } else {
+                isTyping = false;
+            }
+        }
+
+        // --- 5. ГЕНЕРАЦИЯ ПОРТФОЛИО ---
+        function generatePortfolio() {
+            const grid = document.getElementById('portfolio-grid');
+            grid.innerHTML = '';
+
+            portfolioData.forEach(item => {
+                const portfolioItem = document.createElement('div');
+                portfolioItem.className = `portfolio-item ${item.category}-item`;
+                portfolioItem.setAttribute('data-category', item.category);
+                portfolioItem.setAttribute('data-id', item.id);
+
+                if (item.type === 'image') {
+                    portfolioItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" loading="lazy">
+                        <div class="item-overlay">
+                            <div class="item-info">
+                                <h3>${item.title}</h3>
+                                <p>${item.description}</p>
+                            </div>
+                        </div>
+                    `;
+                } else if (item.type === 'text') {
+                    portfolioItem.innerHTML = `
+                        <div class="text-content">
+                            <h3>${item.title}</h3>
+                            <p class="quote">${item.content}</p>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                }
+
+                portfolioItem.addEventListener('click', () => openLightbox(item.id));
+                grid.appendChild(portfolioItem);
+            });
+        }
+
+        // --- 6. ФИЛЬТРАЦИЯ ПОРТФОЛИО ---
+        function initPortfolioFilter() {
+            const categoryLinks = document.querySelectorAll('.category-link');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    categoryLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    portfolioItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.classList.remove('hidden');
+                            setTimeout(() => {
+                                item.style.display = 'block';
+                            }, 300);
+                        } else {
+                            item.classList.add('hidden');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // --- 7. ЛАЙТБОКС ---
+        let currentLightboxIndex = 0;
+
+        function openLightbox(itemId) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightboxContent');
+            const item = portfolioData.find(i => i.id === itemId);
+            currentLightboxIndex = portfolioData.findIndex(i => i.id === itemId);
+
+            let contentHTML = '';
+
+            if (item.type === 'image') {
+                contentHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="lightbox-media">
+                    <div class="lightbox-info">
+                        <h2 class="lightbox-title">${item.title}</h2>
+                        <p class="lightbox-desc">${item.description}</p>
+                        <div class="lightbox-meta">
+                            <div class="meta-item">
+                                <h4>Дата</h4>
+                                <p>${item.date}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Место</h4>
+                                <p>${item.location}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Оборудование</h4>
+                                <p>${item.tools}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Техники</h4>
+                                <p>${item.techniques}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (item.type === 'text') {
+                contentHTML = `
+                    <div class="lightbox-info" style="padding: 50px;">
+                        <h2 class="lightbox-title">${item.title}</h2>
+                        <p class="lightbox-desc">${item.description}</p>
+                        <div class="quote" style="font-size: 1.2rem; margin: 30px 0;">${item.content}</div>
+                        <div class="lightbox-meta">
+                            <div class="meta-item">
+                                <h4>Дата</h4>
+                                <p>${item.date}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Жанр</h4>
+                                <p>${item.genre}</p>
+                            </div>
+                            <div class="meta-item">
+                                <h4>Объём</h4>
+                                <p>${item.words}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            lightboxContent.innerHTML = contentHTML;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function navigateLightbox(direction) {
+            currentLightboxIndex += direction;
+            
+            if (currentLightboxIndex < 0) {
+                currentLightboxIndex = portfolioData.length - 1;
+            } else if (currentLightboxIndex >= portfolioData.length) {
+                currentLightboxIndex = 0;
+            }
+            
+            openLightbox(portfolioData[currentLightboxIndex].id);
+        }
+
+        // --- 8. МОБИЛЬНОЕ МЕНЮ ---
+        function initMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+            }
+
+            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            mobileMenuClose.addEventListener('click', toggleMobileMenu);
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', toggleMobileMenu);
+            });
+        }
+
+        // --- 9. ПЛАВНОЕ ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ---
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.id === 'about' && charIndex === 0) {
+                    typeWriter();
+                }
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeInElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- 10. ПЛАВНЫЙ СКРОЛЛ ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // --- 11. ИНИЦИАЛИЗАЦИЯ ---
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            generatePortfolio();
+            initPortfolioFilter();
+            initMobileMenu();
+            
+            // Лайтбокс события
+            document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+            document.getElementById('lightboxPrev').addEventListener('click', () => navigateLightbox(-1));
+            document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox(1));
+            
+            // Закрытие лайтбокса по клику на фон
+            document.getElementById('lightbox').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+            
+            // Закрытие лайтбокса по ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+
+            // Адаптация количества частиц при изменении размера окна
+            window.addEventListener('resize', function() {
+                document.getElementById('particles-container').innerHTML = '';
+                createParticles();
+            });
+        });
+    </script>
+</body>
+</html>
